@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset='UTF-8'>
+
+		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
+		</script>
+	</head>
+
+	<canvas id='canvas' width='320' height='200'>
+	</canvas>
+
+	<!-- Application constants --!>
+	<script type='text/javascript'>
+	var context = jQuery('canvas')[0].getContext('2d');
+	var canvasLeft = jQuery('canvas').offset().left;
+	var canvasTop = jQuery('canvas').offset().top;
+	</script>
+
+	<!-- The painting logic proper --!>
+	<script type='text/javascript'>
+	jQuery('canvas')
+		.on('mousedown', function(event) {
+			var x = event.pageX - canvasLeft;
+			var y = event.pageY - canvasTop;
+
+			context.fillStyle = 'yellow';
+			context.fillRect(x, y, 10, 10);
+		});
+	</script>
+</html>
