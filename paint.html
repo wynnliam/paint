@@ -8,8 +8,19 @@
 		</script>
 	</head>
 
-	<canvas id='canvas' width='320' height='200'>
-	</canvas>
+	<div>
+		<canvas id='canvas' width='320' height='200'>
+		</canvas>
+	</div>
+
+	<div>
+		<p>Color:</p>
+
+		<select id='colorPick'>
+			<option value="yellow">Yellow</option>
+			<option value="steelblue">Steel Blue</option>
+		</select>
+	</div>
 
 	<!-- Application constants --!>
 	<script type='text/javascript'>
@@ -24,8 +35,9 @@
 		.on('mousedown', function(event) {
 			var x = event.pageX - canvasLeft;
 			var y = event.pageY - canvasTop;
+			var pixelColor = $('#colorPick')[0].value;
 
-			context.fillStyle = 'yellow';
+			context.fillStyle = pixelColor;
 			context.fillRect(x, y, 10, 10);
 		});
 	</script>
