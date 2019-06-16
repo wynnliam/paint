@@ -7,6 +7,9 @@
 		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
 		</script>
 
+		<script type='text/javascript' src="http://localhost:8080/socket.io/socket.io.js">
+		</script>
+
 		<style type="text/css">
 			.container {
 				display:inline-block;
@@ -35,6 +38,8 @@
 
 	<!-- Application constants -->
 	<script type='text/javascript'>
+	var objectSocket = io.connect('http://localhost:8080/');
+
 	var context = jQuery('canvas')[0].getContext('2d');
 	var canvasLeft = jQuery('canvas').offset().left;
 	var canvasTop = jQuery('canvas').offset().top;
@@ -48,8 +53,16 @@
 			var y = event.pageY - canvasTop;
 			var pixelColor = $('#colorPick')[0].value;
 
-			context.fillStyle = pixelColor;
-			context.fillRect(x, y, 10, 10);
+			objectSocket.emit('paint', {
+				'x': x,
+				'y': y,
+				'color': pixelColor
+			});
+		});
+
+		objectSocket.on('renderPixel', function(data) {
+			context.fillStyle = data.color;
+			context.fillRect(data.x, data.y, 10, 10);
 		});
 	</script>
 </html>
