@@ -12,3 +12,5 @@ io.on('connection', function(objectSocket) {
 		io.emit('renderPixel', paintData);
 	});
 });
+
+console.log("Running server at 8080");
