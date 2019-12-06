@@ -1,0 +1,25 @@
+{
+  "name": "paint",
+  "version": "1.0.0",
+  "description": "Simple multi-user painting application",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wynnliam/paint.git"
+  },
+  "author": "Liam Wynn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wynnliam/paint/issues"
+  },
+  "homepage": "https://github.com/wynnliam/paint#readme"
+}
